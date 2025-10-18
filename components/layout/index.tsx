@@ -29,7 +29,7 @@ const LayoutEl: React.FC<LayoutElProps> = ({ children }) => {
       if (res.status === 200) {
         console.log("✅", res.data.message);
         localStorage.clear();
-        router.push('/profile')
+        router.push('/login')
 
       }
     } catch (error: any) {
