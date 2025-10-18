@@ -34,10 +34,13 @@ const topicsData: { title: string; status: string; subTopics: SubTopic[] }[] =
 
 const SubTopicsTable: React.FC<SubTopicsTableProps> = ({ subTopics, title,
   // onStatusChange
- }) => {
+}) => {
   const [topics, setTopics] = useState<SubTopic[]>(() => {
-    const stored = localStorage.getItem(title);
-    return stored ? JSON.parse(stored) : subTopics;
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem(title);
+      return stored ? JSON.parse(stored) : subTopics;
+    }
+    return subTopics;
   });
 
   useEffect(() => {
@@ -142,7 +145,7 @@ const Topics = () => {
     setAllDoneMap(result);
   }, []);
 
- const handleSubTopicStatusChange = (title: string, allDone: boolean) => {
+  const handleSubTopicStatusChange = (title: string, allDone: boolean) => {
     setAllDoneMap(prev => ({ ...prev, [title]: allDone }));
   };
   return (
