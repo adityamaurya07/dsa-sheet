@@ -152,7 +152,8 @@ const Topics = () => {
     <LayoutEl>
       <div className="flex justify-center">
         <div className="min-h-screen p-10 space-y-4 w-full max-w-4xl">
-          <h1 className="text-2xl font-semibold mb-4">Topics Demo</h1>
+          <h1 className="text-2xl font-semibold mb-4 text-center text-blue-500">Topics</h1>
+          <p className="text-center text-[13px] text-gray-500">Explore these exciting topics!</p>
           {topicsData.map((topic, index) => {
             // ✅ Determine status based on allDoneMap
             const status = allDoneMap[topic.title] ? "Done" : "Pending";
